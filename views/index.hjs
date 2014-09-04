@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ title }}</title>
+	<link rel='stylesheet' href='/css/style.css' />
+</head>
+<body>
+
+    <main id="dropMe">
+    <h1 id="message"></h1>
+
+    <ul id="uploadList"></ul>
+    </main>
+
+	<script src="/js/upload.js"></script>
+</body>
+</html>
