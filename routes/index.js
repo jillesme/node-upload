@@ -14,8 +14,8 @@ router.get('/', function (req, res) {
 router.get('/*', function (req, res) {
 	// Get the file name from the URL
 	var fileName = req.params[0];
-	
-	// Check if it exists synchronously 
+
+	// Check if it exists synchronously
 	if (fs.existsSync(uploadPath + fileName)) {
 		res.render('image', {
 			title: fileName,
@@ -26,7 +26,7 @@ router.get('/*', function (req, res) {
 			imageName: fileName
 		});
 	}
-	
+
 
 });
 
@@ -42,12 +42,12 @@ router.post('/upload', function (req, res) {
 				var newFile = uploadPath + newName;
 
 				fs.writeFile(newFile, file, function (error) {
-					if (!error) { 
+					if (!error) {
 						fs.unlink(uploadedFile.path); // delete old file
 						res.send(200, '/' + newName);
 					}
 
-				})
+				});
 			} else {
 				res.send(500, 'Couldn\'t read ' + uploadedFile.name);
 			}
@@ -61,9 +61,9 @@ router.post('/upload', function (req, res) {
 
 function isSafe (file) {
 	var MAXFILESIZE = 5000000;
-	var allowedTypes = ['image/jpeg', 'image/png', 'application/pdf', 'text/plain']
+	var allowedTypes = ['image/jpeg', 'image/png', 'application/pdf', 'text/plain'];
 	var safe = true;
-	
+
 	if (allowedTypes.indexOf(file.mimetype) === -1 || file.size > MAXFILESIZE) {
 		safe = false;
 	}
@@ -72,14 +72,11 @@ function isSafe (file) {
 }
 
 function generateString (length) {
-	var chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-							 'j', 'k', 'l', 'm', 'o', 'p', 'q', 'r', 's',
-							 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-	var length = (length ? length : 6);
+  var chars = "abcdefghijklmnopqrstuvwxyz".split('');
+	var len = (length ? length : 6);
 	var randomString = '';
 
-	for (var i = 0; i < length; i++) {
+	for (var i = 0; i < len; i++) {
 		var r = Math.floor(Math.random() * chars.length);
 		// TODO: uppercase or not by math.random();
 		var e = (i % 2 === 0);
