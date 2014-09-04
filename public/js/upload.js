@@ -5,7 +5,8 @@
     message = document.querySelector('#message'),
     dropField = document.querySelector('#dropMe'),
     uploadList = document.querySelector('#uploadList'),
-    uploadButton = document.querySelector('#uploadCustom'),
+
+    uploadCustom = document.querySelector('#uploadCustom'),
     uploadField = document.querySelector('#custom-upload'),
     uploadTempName = document.querySelector('#custom-upload-name'),
     fileHistory = [];
@@ -18,7 +19,7 @@
       uploadTempName.innerHTML = file.name;
     });
 
-    uploadButton.addEventListener('click', function () {
+    uploadCustom.addEventListener('click', function () {
       var file = uploadField.files[0];
       uploadFile(file);
     }, false);
@@ -84,13 +85,24 @@
         return isValid;
     }
 
+    function bounceButton () {
+      uploadButton.classList.add('animate');
+      uploadButton.classList.add('bounce');
+
+      window.setTimeout(function () {
+        uploadButton.classList.remove('animate');
+        uploadButton.classList.remove('bounce');
+      }, 1000);
+    }
+
     function uploadFile (file) {
 
             uploadList.style.display = 'block';
 
             var droppedFile = file;
 
-            if ( fileHistory.indexOf(droppedFile.name) !== -1 ){
+            if (droppedFile === undefined || fileHistory.indexOf(droppedFile.name) !== -1){
+                bounceButton();
                 return;
             }
 
