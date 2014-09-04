@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href='/css/style.css' />
 </head>
 <body>
@@ -13,6 +14,19 @@
     <h1 id="message"></h1>
 
     <ul id="uploadList"></ul>
+
+
+    <div id="customUpload">
+
+      <div id="uploadButton">
+        <p>Pick File</p>
+        <input type="file" id="custom-upload">
+        <button id="uploadCustom"><i class="fa fa-arrow-up"></i></button>
+      </div>
+
+      <small id="custom-upload-name">No file selected</small>
+    </div>
+
     </main>
 
   <script src="/js/upload.js"></script>

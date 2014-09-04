@@ -1,13 +1,28 @@
 (function () {
     "use strict";
 
-    var available = window.FileReader !== undefined,
+    var available = window.File && window.FileReader && window.FileList && window.Blob,
     message = document.querySelector('#message'),
     dropField = document.querySelector('#dropMe'),
     uploadList = document.querySelector('#uploadList'),
+    uploadButton = document.querySelector('#uploadCustom'),
+    uploadField = document.querySelector('#custom-upload'),
+    uploadTempName = document.querySelector('#custom-upload-name'),
     fileHistory = [];
 
     var data;
+
+    // --- EDIT DEBUG ----
+    uploadField.addEventListener('change', function () {
+      var file = uploadField.files[0];
+      uploadTempName.innerHTML = file.name;
+    });
+
+    uploadButton.addEventListener('click', function () {
+      var file = uploadField.files[0];
+      uploadFile(file);
+    }, false);
+    // --- END DEBUG ----
 
     if (available) {
         var uploadReady = false;
@@ -32,9 +47,48 @@
             this.style.background = '';
             message.innerHTML = 'Drop Here';
 
+            uploadFile(ev.dataTransfer.files[0]);
+        }, false);
+
+    } else {
+        document.getElementById('message').innerHTML = 'Your browser is not supported';
+    }
+
+    function parseBytes (input) {
+        var result = 0,
+        kbytes = input / 1024;
+        if (kbytes >= 0 && kbytes < 1024) {
+            result = Math.round(kbytes) + 'kb';
+        } else if ( kbytes >= 1024 ) {
+            var mbytes = kbytes / 1024;
+            result = Math.round(mbytes * 100) / 100 + 'mb';
+        }
+        return result;
+    }
+
+    function checkFile (file) {
+        if (!file) return false;
+
+        var fileTypes = ['image/jpeg', 'image/png', 'application/pdf', 'text/plain'];
+        var maxSize = 5000000;
+        var isValid;
+
+        if (fileTypes.indexOf(file.type) === -1){
+            isValid = false;
+        } else if ( file.size > maxSize ) {
+            isValid = false;
+        } else {
+            isValid = true;
+        }
+
+        return isValid;
+    }
+
+    function uploadFile (file) {
+
             uploadList.style.display = 'block';
 
-            var droppedFile = ev.dataTransfer.files[0];
+            var droppedFile = file;
 
             if ( fileHistory.indexOf(droppedFile.name) !== -1 ){
                 return;
@@ -51,7 +105,7 @@
             var uploadItem = document.createElement('li');
             uploadLink.innerHTML = droppedFile.name + ' <span>[' + parseBytes(droppedFile.size) + ']</span>';
 
-            if (!uploadReady) { 
+            if (!uploadReady) {
                 uploadItem.className = 'invalid';
             }
 
@@ -75,41 +129,7 @@
 
             xhrRequest.open("POST", "/upload", true);
             xhrRequest.send(data);
-
             }
-
-
-        }, false);
-
-    } else {
-        document.getElementById('message').innerHTML = 'Your browser is not supported';
     }
 
-    function parseBytes (input) {
-        var result = 0,
-        kbytes = input / 1024;
-        if (kbytes >= 0 && kbytes < 1024) {
-            result = Math.round(kbytes) + 'kb';
-        } else if ( kbytes >= 1024 ) {
-            var mbytes = kbytes / 1024;
-            result = Math.round(mbytes * 100) / 100 + 'mb';
-        }
-        return result;
-    }
-
-    function checkFile (file) {
-        var fileTypes = ['image/jpeg', 'image/png', 'application/pdf', 'text/plain'];
-        var maxSize = 5000000;
-        var isValid;
-
-        if (fileTypes.indexOf(file.type) === -1){
-            isValid = false;
-        } else if ( file.size > maxSize ) {
-            isValid = false;
-        } else {
-            isValid = true;
-        }
-
-        return isValid;
-    }
 }(document, window));
