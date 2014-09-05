@@ -12,16 +12,17 @@ h1#message {
 }
 
 ul#upload-list {
+  padding: 0;
   display: none;
-  width: 600px;
   margin: auto;
 }
 
 ul#upload-list li {
   text-align: center;
-  font-size: 42px;
-  line-height: 50px;
+  font-size: 170%;
+  line-height: 30px;
   list-style: none;
+  margin: 0 0 20px 0;
 }
 
 ul#upload-list li a {
@@ -60,7 +61,7 @@ img {
   margin: auto;
   position: fixed;
   width: 100%;
-  bottom: 100px;
+  bottom: 5%;
 }
 
 #custom-upload-container small {
