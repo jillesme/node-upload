@@ -22,6 +22,7 @@
     uploadCustom.addEventListener('click', function () {
       var file = uploadField.files[0];
       uploadFile(file);
+      uploadTempName.innerHTML = 'No file selected';
     }, false);
     // --- END DEBUG ----
 
