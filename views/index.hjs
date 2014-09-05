@@ -10,18 +10,18 @@
 </head>
 <body>
 
-    <main id="dropMe">
+    <main id="drop-me">
     <h1 id="message"></h1>
 
-    <ul id="uploadList"></ul>
+    <ul id="upload-list"></ul>
 
 
-    <div id="customUpload">
+    <div id="custom-upload-container">
 
-      <div id="uploadButton">
+      <div id="upload-button">
         <p>Pick File</p>
         <input type="file" id="custom-upload">
-        <button id="uploadCustom"><i class="fa fa-arrow-up"></i></button>
+        <button id="upload-custom"><i class="fa fa-arrow-up"></i></button>
       </div>
 
       <small id="custom-upload-name">No file selected</small>

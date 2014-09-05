@@ -1,19 +1,19 @@
 (function () {
     "use strict";
 
-    var available = window.File && window.FileReader && window.FileList && window.Blob,
-    message = document.querySelector('#message'),
-    dropField = document.querySelector('#dropMe'),
-    uploadList = document.querySelector('#uploadList'),
+    var available = window.File && window.FileReader && window.FileList && window.Blob;
 
-    uploadCustom = document.querySelector('#uploadCustom'),
-    uploadField = document.querySelector('#custom-upload'),
-    uploadTempName = document.querySelector('#custom-upload-name'),
-    fileHistory = [];
+    var message = dq('#message');
+    var dropField = dq('#drop-me');
+    var uploadList = dq('#upload-list');
+    var uploadCustom = dq('#upload-custom');
+    var uploadField = dq('#custom-upload');
+    var uploadButton = dq('#upload-button');
+    var uploadTempName = dq('#custom-upload-name');
+    var fileHistory = [];
 
     var data;
 
-    // --- EDIT DEBUG ----
     uploadField.addEventListener('change', function () {
       var file = uploadField.files[0];
       uploadTempName.innerHTML = file.name;
@@ -24,7 +24,6 @@
       uploadFile(file);
       uploadTempName.innerHTML = 'No file selected';
     }, false);
-    // --- END DEBUG ----
 
     if (available) {
         var uploadReady = false;
@@ -54,6 +53,20 @@
 
     } else {
         document.getElementById('message').innerHTML = 'Your browser is not supported';
+    }
+
+    function dq (elem) {
+      return document.querySelector(elem);
+    }
+
+    function bounceButton () {
+      uploadButton.classList.add('animate');
+      uploadButton.classList.add('bounce');
+
+      window.setTimeout(function () {
+        uploadButton.classList.remove('animate');
+        uploadButton.classList.remove('bounce');
+      }, 1000);
     }
 
     function parseBytes (input) {
@@ -86,16 +99,6 @@
         return isValid;
     }
 
-    function bounceButton () {
-      uploadButton.classList.add('animate');
-      uploadButton.classList.add('bounce');
-
-      window.setTimeout(function () {
-        uploadButton.classList.remove('animate');
-        uploadButton.classList.remove('bounce');
-      }, 1000);
-    }
-
     function uploadFile (file) {
 
             uploadList.style.display = 'block';
@@ -124,7 +127,6 @@
 
             uploadItem.appendChild(uploadLink);
             uploadList.appendChild(uploadItem);
-
 
             if (uploadReady) {
             var xhrRequest = new XMLHttpRequest(),

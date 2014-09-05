@@ -1,39 +1,44 @@
-body{
+body {
   font-family: 'Open Sans', 'sans-serif';
   background: #eaeaea;
   margin: 0;
   padding: 0;
 }
 
-h1#message{
+h1#message {
   margin: 80px auto 40px auto;
   font-size: 80px;
   text-align: center;
 }
-ul#uploadList{
+
+ul#upload-list {
   display: none;
   width: 600px;
   margin: auto;
 }
-ul#uploadList li{
+
+ul#upload-list li {
   text-align: center;
   font-size: 42px;
   line-height: 50px;
   list-style: none;
 }
-ul#uploadList li a{
+
+ul#upload-list li a {
   color: #707070;
   text-decoration: none;
 }
-ul#uploadList li a:hover{
+
+ul#upload-list li a:hover {
   text-decoration: underline;
 }
-ul#uploadList li span{
+
+ul#upload-list li span {
   font-size: 18px;
   color: #666666;
 }
 
-#dropMe{
+#drop-me {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -51,14 +56,14 @@ img {
   box-shadow: 0px 0px 10px 0px #999;
 }
 
-#customUpload {
+#custom-upload-container {
   margin: auto;
   position: fixed;
   width: 100%;
   bottom: 100px;
 }
 
-#customUpload small {
+#custom-upload-container small {
   margin: 5px 0 0 0;
   display: block;
   width: 100%;
@@ -66,14 +71,14 @@ img {
   font-style: italic
 }
 
-#uploadButton {
+#upload-button {
   margin: auto;
   background: #909090;
   height: 40px;
   width: 140px;
 }
 
-#uploadButton p {
+#upload-button p {
   height: 40px;
   width: 80%;
   text-align: center;
@@ -83,17 +88,17 @@ img {
   color: #eaeaea;
 }
 
-#uploadButton input {
+#upload-button input {
   width: 80%;
   height: inherit;
   opacity: 0;
 }
 
-#uploadButton input:hover {
+#upload-button input:hover {
   cursor: pointer;
 }
 
-#uploadButton button {
+#upload-button button {
   float: right;
   border: none;
   margin: 0;
@@ -103,19 +108,19 @@ img {
   background: #d0d0d0;
 }
 
-#uploadButton button:hover {
+#upload-button button:hover {
   cursor: pointer;
 }
 
-#uploadButton button:focus {
+#upload-button button:focus {
   outline: 0;
 }
 
-.invalid{
+.invalid {
   text-decoration: line-through;
 }
 
-.valid{
+.valid {
   color: #48d278 !important;
 }
 
