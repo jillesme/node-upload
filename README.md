@@ -9,5 +9,6 @@ iPad or iPhone.
 
 ------------
 
-TODO: ** Add realtime overview page with socket.io **
-TODO: ** Move CSS to SCSS **
+TODO: 
+* Add realtime overview page with socket.io
+* Move CSS to SCSS
