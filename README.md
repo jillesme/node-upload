@@ -2,7 +2,9 @@
 
 Upload files to your server with Node and Express.
 
-![Example](screenshot.png)
+<p style="text-align: center">
+<img src="screenshot.png">
+</p>
 
 With **node-upload** you can upload images, PDFs and text files to your server by dragging and dropping. 
 
