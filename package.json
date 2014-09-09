@@ -1,6 +1,6 @@
 {
-  "name": "dropUpload",
-  "version": "0.0.1",
+  "name": "node-upload",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -12,5 +12,8 @@
     "debug": "~0.7.4",
     "hjs": "~0.0.6",
     "multer": "~0.1.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8"
   }
 }
