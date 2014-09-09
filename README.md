@@ -34,6 +34,6 @@ npm install -g nodemon
 
 * Multi image drag & drop
 
-* Realtime overview page with socket.io
+* Add unit tests
 
-* Move CSS to SCSS
+* Realtime overview page with socket.io
