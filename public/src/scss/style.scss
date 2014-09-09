@@ -1,7 +1,8 @@
+$fontFamily: 'Open Sans', 'sans-serif';
 $background: #eaeaea;
 
 body {
-  font-family: 'Open Sans', 'sans-serif';
+  font-family: $fontFamily;
   background: $background;
   margin: 0;
   padding: 0;
@@ -129,16 +130,8 @@ img {
 }
 
 .animate {
-    -webkit-animation-duration: 1s;
     animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-}
-
-@-webkit-keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
-    40% {-webkit-transform: translateY(-30px);}
-    60% {-webkit-transform: translateY(-15px);}
 }
 
 @keyframes bounce {
@@ -148,6 +141,5 @@ img {
 }
 
 .bounce {
-    -webkit-animation-name: bounce;
     animation-name: bounce;
 }
