@@ -15,10 +15,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs'); // hogan.js
 
-app.use(favicon(__dirname + '/public/build/favicon.ico'));
+app.use(favicon(__dirname + '/public/dist/favicon.ico'));
 app.use(logger('dev'));
 app.use(multer());
-app.use(express.static(path.join(__dirname, 'public/build')));
+app.use(express.static(path.join(__dirname, 'public/dist')));
 app.use(routes);
 
 // development error handler will print stacktrace

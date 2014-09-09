@@ -1,6 +1,8 @@
+$background: #eaeaea;
+
 body {
   font-family: 'Open Sans', 'sans-serif';
-  background: #eaeaea;
+  background: $background;
   margin: 0;
   padding: 0;
 }
@@ -15,28 +17,28 @@ ul#upload-list {
   padding: 0;
   display: none;
   margin: auto;
-}
 
-ul#upload-list li {
-  text-align: center;
-  font-size: 170%;
-  line-height: 30px;
-  list-style: none;
-  margin: 0 0 20px 0;
-}
+  li {
+    text-align: center;
+    font-size: 170%;
+    line-height: 30px;
+    list-style: none;
+    margin: 0 0 20px 0;
 
-ul#upload-list li a {
-  color: #707070;
-  text-decoration: none;
-}
+    a {
+      color: #707070;
+      text-decoration: none;
 
-ul#upload-list li a:hover {
-  text-decoration: underline;
-}
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
-ul#upload-list li span {
-  font-size: 18px;
-  color: #666666;
+    span {
+      font-size: 18px;
+      color: #666666;
+    }
+  }
 }
 
 #drop-me {
@@ -62,14 +64,14 @@ img {
   position: fixed;
   width: 100%;
   bottom: 10%;
-}
 
-#custom-upload-container small {
-  margin: 5px 0 0 0;
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-style: italic
+  small {
+    margin: 5px 0 0 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-style: italic
+  }
 }
 
 #upload-button {
@@ -77,44 +79,45 @@ img {
   background: #909090;
   height: 40px;
   width: 140px;
-}
 
-#upload-button p {
-  height: 40px;
-  width: 80%;
-  text-align: center;
-  line-height: 40px;
-  margin: 0 0 -40px 0;
-  padding: 0 0 0 0;
-  color: #eaeaea;
-}
+  p {
+    height: 40px;
+    width: 80%;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 0 -40px 0;
+    padding: 0 0 0 0;
+    color: #eaeaea;
+  }
 
-#upload-button input {
-  width: 80%;
-  height: inherit;
-  opacity: 0;
-}
+  input {
+    width: 80%;
+    height: inherit;
+    opacity: 0;
 
-#upload-button input:hover {
-  cursor: pointer;
-}
+    &:hover {
+      cursor: pointer;
+    }
+  }
 
-#upload-button button {
-  float: right;
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: 20%;
-  height: 40px;
-  background: #d0d0d0;
-}
+  button {
+    float: right;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    height: 40px;
+    background: #d0d0d0;
 
-#upload-button button:hover {
-  cursor: pointer;
-}
+    &:hover {
+      cursor: pointer;
+    }
 
-#upload-button button:focus {
-  outline: 0;
+    &:focus {
+      outline: 0;
+    }
+
+  }
 }
 
 .invalid {
