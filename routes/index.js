@@ -3,7 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var router = express.Router();
 
-var uploadPath = path.normalize(__dirname + '../../public/u/');
+var uploadPath = path.normalize(__dirname + '../../public/build/u/');
 
 /* GET home page. */
 router.get('/', function (req, res) {
