@@ -17,18 +17,13 @@ After you've forked and cloned this repo you should cd into it and run the follo
 
 ```
 npm install 
-node app.js
+gulp
 ```
+
+I have added gulp to watch everything so you'll never have to re-run the app, just run gulp and you'er done.
 
 You'll see 'Listening on 3030' which means you can now acces the app by going to **127.0.0.1:3030**
 
-I highly recommend using [nodemon](https://github.com/remy/nodemon). Which is a tool that monitors your JavaScript files for changes and restarts the project when a file is changed.
-
-You can install nodemon like this
-
-```
-npm install -g nodemon
-```
 
 # TODO
 
