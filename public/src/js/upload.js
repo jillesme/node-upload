@@ -50,7 +50,10 @@
         this.style.background = '';
         message.innerHTML = 'Drop Here';
 
-        uploadFile(ev.dataTransfer.files[0]);
+        for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+          uploadFile(ev.dataTransfer.files[i]);
+        }
+
       }, false);
     }
 
@@ -118,8 +121,6 @@
     }
 
     fileHistory.push(droppedFile.name + ':' + droppedFile.size);
-
-    console.log(fileHistory);
 
     uploadReady = checkFile(droppedFile);
 

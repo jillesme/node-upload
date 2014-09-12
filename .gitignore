@@ -12,4 +12,5 @@ Icon
 .Trashes
 
 # Upload
-public/u/*.(jpeg|jpg|png|pdf|txt)
+/public/dist/u/*
+/public/dist/u/.uploadfolder
