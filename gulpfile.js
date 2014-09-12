@@ -4,7 +4,6 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
-var plumber = require('gulp-plumber');
 var autoprefixer = require('gulp-autoprefixer');
 var nodemon = require('gulp-nodemon');
 
@@ -12,7 +11,7 @@ var nodemon = require('gulp-nodemon');
  * Deletes all the uploaded images from the /u/ directory
  */
 gulp.task('clean', function () {
-  del(['./public/dist/u/*', './public/src/u/*']);
+  del(['./public/dist/u/*', '!./public/dist/u/.uploadfolder']);
 });
 
 /* GULP TASK: jshint
@@ -38,8 +37,8 @@ gulp.task('uglify', function () {
  */
 gulp.task('sass', function () {
   return gulp.src('./public/src/scss/*.scss')
-          .pipe(plumber({ errorHandler: onError }))
           .pipe(sass({ outputStyle: 'compressed' }))
+          .on('error', onError)
           .pipe(autoprefixer({
             browsers: [
             'ios 7',
