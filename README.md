@@ -27,8 +27,6 @@ You'll see 'Listening on 3030' which means you can now acces the app by going to
 
 # TODO
 
-* Multi image drag & drop
-
 * Add unit tests
 
 * Realtime overview page with socket.io
