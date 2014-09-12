@@ -1,5 +1,6 @@
 // Requirements
 var express = require('express'); // Framework
+var http = require('http'); // http
 var path = require('path'); // Work with folders
 var favicon = require('serve-favicon'); // Favicon handler
 var logger = require('morgan'); // Logging 
@@ -16,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs'); // hogan.js
 
 app.use(favicon(__dirname + '/public/dist/favicon.ico'));
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(multer());
 app.use(express.static(path.join(__dirname, 'public/dist')));
 app.use(routes);
@@ -40,9 +41,11 @@ app.use(function(err, req, res, next) {
     });
 });
 
-// Run app on port 3000
-app.listen(3030);
+var s = http.createServer(app);
+var io = require('socket.io')(s);
+s.listen(3030);
 
 console.log("Listening on port 3030");
 
 module.exports = app;
+exports.io = io;

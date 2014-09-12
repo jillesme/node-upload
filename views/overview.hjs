@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='/css/style.css' />
+
+  <style>
+    .image {
+      display: inline-block;
+      width: 280px !important;
+      height: 200px;
+      overflow: hidden;
+    }
+    .image img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align: center; width 100%;">Overview</h1>
+
+
+  <main>
+
+  {{#images}}
+  <div class="image">
+    <img src="/u/{{ name }}" alt=";)">
+  </div>
+  {{/images}}
+
+  </main>
+
+  <script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+  <script>
+    var socket = io();
+    var main = document.querySelector('main');
+    socket.on('new-image', function (image) {
+      var newImage = document.createElement('img');
+      newImage.src = '/u/' + image.name;
+      var imageContainer = document.createElement('div');
+      imageContainer.className = 'image';
+      imageContainer.appendChild(newImage);
+
+      main.appendChild(imageContainer);
+      main.insertBefore(imageContainer, main.firstChild);
+    });
+  </script>
+
+</body>
+</html>

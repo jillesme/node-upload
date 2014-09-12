@@ -1,14 +1,38 @@
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
+var app = require('../app.js');
 var router = express.Router();
-
 var uploadPath = path.normalize(__dirname + '../../public/dist/u/');
 
 /* GET home page. */
 router.get('/', function (req, res) {
   res.render('index', { title: 'Upload' });
 });
+
+/* GET overview */
+router.get('/overview', function (req, res) {
+    var files = fs.readdirSync(uploadPath);
+    var img = [];
+
+
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+
+      // Don't add hidden files and .DS_STORE files to the array
+      if (file.charAt(0) !== '.') {
+        img.push({
+          name: file
+        });
+      }
+    }
+
+    res.render('overview', {
+      title: 'Overview',
+      images: img
+    });
+});
+
 
 /* GET /[imagename] */
 router.get('/*', function (req, res) {
@@ -34,6 +58,7 @@ router.get('/*', function (req, res) {
 router.post('/upload', function (req, res) {
   var uploadedFile = req.files.file;
 
+
   if (isSafe(uploadedFile)) {
     fs.readFile(uploadedFile.path, function (error, file) {
       if (!error) {
@@ -43,6 +68,7 @@ router.post('/upload', function (req, res) {
         fs.writeFile(newFile, file, function (error) {
           if (!error) {
             fs.unlink(uploadedFile.path); // delete old file
+            app.io.emit('new-image', { name: newName });
             res.send(200, '/' + newName);
           }
 
