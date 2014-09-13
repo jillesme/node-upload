@@ -2,14 +2,15 @@
 
 ###Upload files to your server with Node and Express.
 
-<p style="text-align: center">
+<p style="text-align: center; margin: auto;">
 <img src="screenshot.png">
 </p>
 
 With **node-upload** you can upload images, PDFs and text files to your server by dragging and dropping. 
 
-You can now also upload by selecting a file from your
-iPad or iPhone.
+You can now also upload by selecting a file from your iPad or iPhone.
+
+There's a realtime image upload overview at /overview/ it works with Socket.IO.
 
 # How to install (for newbies)
 
