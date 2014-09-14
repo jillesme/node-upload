@@ -21,9 +21,9 @@ npm install
 gulp
 ```
 
-I have added gulp to watch everything so you'll never have to re-run the app, just run gulp and you'er done.
+I have added gulp to watch everything so you'll never have to re-run the app, just run gulp and you're done.
 
-You'll see 'Listening on 3030' which means you can now acces the app by going to **127.0.0.1:3030**
+You'll see 'Listening on 3030' which means you can now access the app by going to **127.0.0.1:3030**
 
 
 # TODO
