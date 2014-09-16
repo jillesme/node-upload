@@ -28,7 +28,9 @@
 
   {{#images}}
   <div class="image">
-    <img src="/u/{{ name }}" alt=";)">
+    <a href="/{{ name }}">
+      <img src="/u/{{ name }}" alt=";)">
+    </a>
   </div>
   {{/images}}
 
