@@ -31,3 +31,5 @@ You'll see 'Listening on 3030' which means you can now access the app by going t
 * Add unit tests
 
 * Clean up client code
+
+* Resize thumbnails for overview in /t/
