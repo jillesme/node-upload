@@ -2,9 +2,9 @@
 
 ###Upload files to your server with Node and Express.
 
-<p style="text-align: center; margin: auto;">
+<div style="text-align: center; margin: auto;">
 <img src="screenshot.png">
-</p>
+</div>
 
 With **node-upload** you can upload images, PDFs and text files to your server by dragging and dropping. 
 
@@ -21,6 +21,8 @@ npm install
 gulp
 ```
 
+Make sure you have ** imagemagick ** installed on your system server. To resize the images to thumbnails for the _/overview_ page. 
+
 I have added gulp to watch everything so you'll never have to re-run the app, just run gulp and you're done.
 
 You'll see 'Listening on 3030' which means you can now access the app by going to **127.0.0.1:3030**
@@ -32,4 +34,3 @@ You'll see 'Listening on 3030' which means you can now access the app by going t
 
 * Clean up client code
 
-* Resize thumbnails for overview in /t/
