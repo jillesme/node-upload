@@ -10,12 +10,6 @@
   <style>
     .image {
       display: inline-block;
-      width: 280px !important;
-      height: 200px;
-      overflow: hidden;
-    }
-    .image img {
-      width: 100%;
     }
   </style>
 </head>
@@ -29,7 +23,7 @@
   {{#images}}
   <div class="image">
     <a href="/{{ name }}">
-      <img src="/u/{{ name }}" alt=";)">
+      <img src="/t/{{ name }}" alt=";)">
     </a>
   </div>
   {{/images}}
@@ -42,7 +36,7 @@
     var main = document.querySelector('main');
     socket.on('new-image', function (image) {
       var newImage = document.createElement('img');
-      newImage.src = '/u/' + image.name;
+      newImage.src = '/t/' + image.name;
       var imageContainer = document.createElement('div');
       imageContainer.className = 'image';
       imageContainer.appendChild(newImage);

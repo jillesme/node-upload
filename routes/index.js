@@ -3,7 +3,9 @@ var fs = require('fs');
 var path = require('path');
 var app = require('../app.js');
 var router = express.Router();
+var easyimage = require('easyimage');
 var uploadPath = path.normalize(__dirname + '../../public/dist/u/');
+var thumbPath = path.normalize(__dirname + '../../public/dist/t/');
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -15,6 +17,13 @@ router.get('/overview', function (req, res) {
     var files = fs.readdirSync(uploadPath);
     var img = [];
 
+    files.sort(function (x, y) {
+      return fs.statSync(uploadPath + x).ctime.getTime() -
+             fs.statSync(uploadPath + y).ctime.getTime();
+
+    });
+
+    files = files.reverse();
 
     for (var i = 0; i < files.length; i++) {
       var file = files[i];
@@ -68,7 +77,14 @@ router.post('/upload', function (req, res) {
         fs.writeFile(newFile, file, function (error) {
           if (!error) {
             fs.unlink(uploadedFile.path); // delete old file
-            app.io.emit('new-image', { name: newName });
+            easyimage.thumbnail({
+              src: newFile,
+              dst: thumbPath + newName,
+              width: 200,
+              height: 150
+            }).then(function () {
+              app.io.emit('new-image', { name: newName });
+            });
             res.send(200, '/' + newName);
           }
 

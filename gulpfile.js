@@ -12,6 +12,7 @@ var nodemon = require('gulp-nodemon');
  */
 gulp.task('clean', function () {
   del(['./public/dist/u/*', '!./public/dist/u/.uploadfolder']);
+  del(['./public/dist/t/*', '!./public/dist/t/.uploadfolder']);
 });
 
 /* GULP TASK: jshint

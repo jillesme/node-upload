@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "debug": "~0.7.4",
+    "easyimage": "^1.0.2",
     "express": "~4.2.0",
     "hjs": "~0.0.6",
     "morgan": "~1.0.0",
