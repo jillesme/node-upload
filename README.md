@@ -21,7 +21,7 @@ npm install
 gulp
 ```
 
-Make sure you have ** imagemagick ** installed on your system server. To resize the images to thumbnails for the _/overview_ page. 
+Make sure you have ***imagemagick*** installed on your system server. To resize the images to thumbnails for the _/overview_ page. 
 
 I have added gulp to watch everything so you'll never have to re-run the app, just run gulp and you're done.
 
