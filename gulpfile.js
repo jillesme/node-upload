@@ -39,7 +39,7 @@ gulp.task('uglify', function () {
 gulp.task('sass', function () {
   return gulp.src('./public/src/scss/*.scss')
           .pipe(sass({ outputStyle: 'compressed' }))
-          .on('error', onError)
+          .on('error', handleError)
           .pipe(autoprefixer({
             browsers: [
             'ios 7',
@@ -73,7 +73,7 @@ gulp.task('run-app', function () {
 
 gulp.task('default', ['run-app', 'watch', 'jshint', 'uglify', 'sass']);
 
-function onError (error) {
+function handleError (error) {
   console.log('Error in \'' + error.plugin + '\'');
   console.log(error.message);
   this.emit('end');
