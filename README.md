@@ -1,8 +1,8 @@
 #node-upload
 
-###Upload files to your server with Node and Express.
+### Upload files to your server with Node and Express.
 
-<div style="text-align: center; margin: auto;">
+<div style="display: block; width: 100%; text-align: center; margin: auto;">
 <img src="screenshot.png">
 </div>
 
