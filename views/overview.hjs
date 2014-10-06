@@ -25,7 +25,7 @@
   </main>
 
   <script src="/js/socket.io-1.1.0.js"></script>
-  <script src"/js/overview.js></script>
+  <script src="/js/overview.js"></script>
 
 </body>
 </html>
