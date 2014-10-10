@@ -26,8 +26,7 @@ module.exports = function (req, res) {
               width: 200,
               height: 150
             }).then(function () {
-              var app = require('../app.js');
-              app.io.emit('new-image', { name: newName });
+              global.io.emit('new-image', { name: newName });
             });
             res.send(200, '/' + newName);
           } else {

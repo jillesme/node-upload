@@ -12,10 +12,10 @@ var multer  = require('multer');
 // Actual Server
 var server = http.createServer(app);
 var io = require('socket.io')(server);
+global.io = io;
 
 console.log('Server listening on port 3030');
 server.listen(3030);
-
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
