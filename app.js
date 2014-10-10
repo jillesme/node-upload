@@ -7,7 +7,7 @@ var logger = require('morgan'); // Logging
 var multer  = require('multer'); // File upload handler
 
 // Includes
-var routes = require('./routes/index'); 
+var routes = require('./routes/routes'); 
 
 // Init app
 var app = express();
@@ -17,13 +17,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs'); // hogan.js
 
 app.use(favicon(__dirname + '/public/dist/favicon.ico'));
-// app.use(logger('dev'));
 app.use(multer());
 app.use(express.static(path.join(__dirname, 'public/dist')));
 app.use(routes);
 
 // development error handler will print stacktrace
 if (app.get('env') === 'development') {
+    app.use(logger('dev'));
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
@@ -32,6 +32,7 @@ if (app.get('env') === 'development') {
         });
     });
 }
+
 //  production error handler no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
