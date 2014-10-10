@@ -11,7 +11,6 @@ var paths = {
 module.exports = function (req, res) {
   var uploadedFile = req.files.file;
 
-
   if (utils.isSafe(uploadedFile)) {
     fs.readFile(uploadedFile.path, function (error, file) {
       if (!error) {
@@ -27,9 +26,12 @@ module.exports = function (req, res) {
               width: 200,
               height: 150
             }).then(function () {
+              var app = require('../app.js');
               app.io.emit('new-image', { name: newName });
             });
             res.send(200, '/' + newName);
+          } else {
+            console.log(error);
           }
 
         });

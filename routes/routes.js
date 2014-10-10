@@ -1,7 +1,4 @@
-var express = require('express');
-
-var app = require('../app.js');
-var router = express.Router();
+var router = require('express').Router();
 
 var index = require('./index.js');
 var overview = require('./overview.js');

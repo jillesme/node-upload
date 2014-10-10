@@ -1,24 +1,33 @@
-// Requirements
-var express = require('express'); // Framework
-var http = require('http'); // http
-var path = require('path'); // Work with folders
-var favicon = require('serve-favicon'); // Favicon handler
-var logger = require('morgan'); // Logging 
-var multer  = require('multer'); // File upload handler
-
-// Includes
-var routes = require('./routes/routes'); 
-
-// Init app
+// Express
+var express = require('express');
 var app = express();
 
-// View engine setup
+// Dependencies
+var http = require('http');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var multer  = require('multer');
+
+// Actual Server
+var server = http.createServer(app);
+var io = require('socket.io')(server);
+
+console.log('Server listening on port 3030');
+server.listen(3030);
+
+
+// View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs'); // hogan.js
 
+// Static
 app.use(favicon(__dirname + '/public/dist/favicon.ico'));
 app.use(multer());
 app.use(express.static(path.join(__dirname, 'public/dist')));
+
+// Routes
+var routes = require('./routes/routes'); 
 app.use(routes);
 
 // development error handler will print stacktrace
@@ -42,11 +51,5 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var s = http.createServer(app);
-var io = require('socket.io')(s);
-s.listen(3030);
-
-console.log("Listening on port 3030");
-
 module.exports = app;
-exports.io = io;
+module.exports.io = io;
