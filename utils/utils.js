@@ -2,7 +2,7 @@ var utils = {};
 
 utils.isSafe = function (file) {
   var MAXFILESIZE = 5000000;
-  var allowedTypes = ['image/jpeg', 'image/png', 'application/pdf', 'text/plain'];
+  var allowedTypes = ['image/jpeg', 'image/png'];
   var safe = true;
 
   if (allowedTypes.indexOf(file.mimetype) === -1 || file.size > MAXFILESIZE) {

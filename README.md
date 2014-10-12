@@ -6,7 +6,7 @@
 <img src="screenshot.png">
 </div>
 
-With **node-upload** you can upload images, PDFs and text files to your server by dragging and dropping. 
+With **node-upload** you can upload images to your server by dragging and dropping.
 
 You can now also upload by selecting a file from your iPad or iPhone.
 
