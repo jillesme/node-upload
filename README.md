@@ -30,8 +30,10 @@ You'll see 'Listening on 3030' which means you can now access the app by going t
 
 # TODO
 
-* Add unit tests
+* Improve design
 
-* Add login / mongodb
+* Unit tests
+
+* Login / mongodb
 
 
