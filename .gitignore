@@ -1,6 +1,7 @@
 # Node
 node_modules
 bower_components
+.idea/*
 
 # OS X
 .DS_Store
@@ -13,8 +14,6 @@ Icon
 
 # Upload
 /public/dist/u/*
-/public/dist/u/.uploadfolder
 
 # Thumb
 /public/dist/t/*
-/public/dist/t/.uploadfolder
