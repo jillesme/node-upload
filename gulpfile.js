@@ -4,15 +4,12 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var nodemon = require('gulp-nodemon');
 
 /* GULP TASK: clean
  * Deletes all the uploaded images from the /u/ directory
  */
 gulp.task('clean', function () {
-  del(['./public/dist/u/*', '!./public/dist/u/.uploadfolder']);
-  del(['./public/dist/t/*', '!./public/dist/t/.uploadfolder']);
+  del(['./public/dist']);
 });
 
 /* GULP TASK: jshint
@@ -40,15 +37,6 @@ gulp.task('sass', function () {
   return gulp.src('./public/src/scss/*.scss')
           .pipe(sass({ outputStyle: 'compressed' }))
           .on('error', handleError)
-          .pipe(autoprefixer({
-            browsers: [
-            'ios 7',
-            'last 2 Explorer versions',
-            'last 3 Chrome versions',
-            'last 3 Firefox versions'
-            ],
-            cascade: false
-          }))
           .pipe(gulp.dest('./public/dist/css/'));
 });
 
@@ -60,18 +48,8 @@ gulp.task('watch', function () {
   gulp.watch('./public/src/scss/*.scss', ['sass']);
 });
 
-/* GULP TASK: run-app
- * Runs app.js and monitors for changes to restart app.js
- */
-gulp.task('run-app', function () {
-  return nodemon({
-    script: './app.js',
-    ext: 'js hjs',
-    ignore: ['gulpfile.js', 'upload.js']
-  });
-});
 
-gulp.task('default', ['run-app', 'watch', 'jshint', 'uglify', 'sass']);
+gulp.task('default', ['watch', 'jshint', 'uglify', 'sass']);
 
 function handleError (error) {
   console.log('Error in \'' + error.plugin + '\'');

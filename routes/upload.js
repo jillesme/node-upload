@@ -28,19 +28,19 @@ module.exports = function (req, res) {
             }).then(function () {
               global.io.emit('new-image', { name: newName });
             });
-            res.send(200, '/' + newName);
+            res.status(200).send('/' + newName);
           } else {
             console.log(error);
           }
 
         });
       } else {
-        res.send(500, 'Couldn\'t read ' + uploadedFile.name);
+        res.status(500).send('Couldn\'t read ' + uploadedFile.name);
       }
 
     });
   } else {
-    res.send(403, 'File(type) not allowed.');
+    res.status(403).send('File(type) not allowed.');
   }
 
 };
