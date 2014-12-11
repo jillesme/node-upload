@@ -8,21 +8,21 @@
 </head>
 <body>
 
-    <main id="drop-me">
-    <h1 id="message"></h1>
+    <main class="drop-me">
+    <h1 class="message"></h1>
 
-    <ul id="upload-list"></ul>
+    <ul class="upload-list"></ul>
 
 
-    <div id="custom-upload-container">
+    <div class="custom-upload-container">
 
-      <div id="upload-button">
+      <div class="upload-button">
         <p>Pick File</p>
-        <input type="file" id="custom-upload">
-        <button id="upload-custom"><i class="fa fa-arrow-up"></i></button>
+        <input type="file" class="custom-upload">
+        <button class="upload-custom"><i class="fa fa-arrow-up"></i></button>
       </div>
 
-      <small id="custom-upload-name">No file selected</small>
+      <small class="custom-upload-name">No file selected</small>
     </div>
 
     </main>

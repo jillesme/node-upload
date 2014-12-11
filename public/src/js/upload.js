@@ -1,16 +1,16 @@
-(function () {
-  "use strict";
+(function (document, window, undefined) {
+  'use strict';
 
   var available = window.File && window.FileReader && window.FileList && window.Blob;
   var mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  var message = dq('#message');
-  var dropField = dq('#drop-me');
-  var uploadList = dq('#upload-list');
-  var uploadCustom = dq('#upload-custom');
-  var uploadField = dq('#custom-upload');
-  var uploadButton = dq('#upload-button');
-  var uploadTempName = dq('#custom-upload-name');
+  var message = dq('.message');
+  var dropField = dq('.drop-me');
+  var uploadList = dq('.upload-list');
+  var uploadCustom = dq('.upload-custom');
+  var uploadField = dq('.custom-upload');
+  var uploadButton = dq('.upload-button');
+  var uploadTempName = dq('.custom-upload-name');
   var fileHistory = [];
 
   var data;
@@ -88,7 +88,7 @@
   }
 
   function parseImageName (name) {
-    return name.replace(/([a-zA-Z0-9-\.\s]{9}).+([a-zA-Z0-9-\.\s]{5})\.([a-zA-Z]+)/g, "$1..$2.$3");
+    return name.replace(/([a-zA-Z0-9-\.\s]{9}).+([a-zA-Z0-9-\.\s]{5})\.([a-zA-Z]+)/g, '$1..$2.$3');
   }
 
   function checkFile (file) {
@@ -149,10 +149,10 @@
         }
       };
 
-      data.append("file", droppedFile);
+      data.append('file', droppedFile);
 
 
-      xhrRequest.open("POST", "/upload", true);
+      xhrRequest.open('POST', '/upload', true);
       xhrRequest.send(data);
     }
   }

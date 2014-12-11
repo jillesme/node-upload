@@ -8,13 +8,13 @@ body {
   padding: 0;
 }
 
-h1#message {
+h1.message {
   margin: 80px auto 40px auto;
   font-size: 80px;
   text-align: center;
 }
 
-ul#upload-list {
+ul.upload-list {
   padding: 0;
   display: none;
   margin: auto;
@@ -42,7 +42,7 @@ ul#upload-list {
   }
 }
 
-#drop-me {
+.drop-me {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -60,7 +60,7 @@ img {
   box-shadow: 0px 0px 10px 0px #999;
 }
 
-#custom-upload-container {
+.custom-upload-container {
   margin: auto;
   position: fixed;
   width: 100%;
@@ -75,7 +75,7 @@ img {
   }
 }
 
-#upload-button {
+.upload-button {
   margin: auto;
   background: #909090;
   height: 40px;
