@@ -18,16 +18,16 @@ console.log('Server listening on port 3030');
 server.listen(3030);
 
 // View Engine
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '/server/views'));
 app.set('view engine', 'hbs'); // handlebars (.hbs)
 
 // Static
-app.use(favicon(__dirname + '/public/dist/favicon.ico'));
+app.use(favicon(__dirname + '/server/public/dist/favicon.ico'));
 app.use(multer());
-app.use(express.static(path.join(__dirname, 'public/dist')));
+app.use(express.static(path.join(__dirname, '/server/public/dist')));
 
 // Routes
-var routes = require('./routes/routes'); 
+var routes = require('./server/routes/routes'); 
 app.use(routes);
 
 // development error handler will print stacktrace
