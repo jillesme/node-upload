@@ -42,6 +42,14 @@ gulp.task('sass', function () {
           .pipe(gulp.dest('./public/dist/css/'));
 });
 
+/* GULP TASK: copy
+ * Compiles files needed
+ */
+gulp.task('copy', function () {
+  return gulp.src('./public/src/favicon.ico')
+          .pipe(gulp.dest('./public/dist/'));
+});
+
 /* GULP TASK: watch
  * Watch files for changes and run apropriate tasks
  */
@@ -51,7 +59,7 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['watch', 'jshint', 'uglify', 'sass']);
+gulp.task('default', ['watch', 'jshint', 'uglify', 'sass', 'copy']);
 
 function handleError (error) {
   console.log('Error in \'' + error.plugin + '\'');
