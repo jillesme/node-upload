@@ -13,7 +13,7 @@ Icon
 .Trashes
 
 # Upload
-/public/dist/u/*
+/server/public/dist/u/*
 
 # Thumb
-/public/dist/t/*
+/server/public/dist/t/*
