@@ -16,7 +16,9 @@ gulp.task('clean', function () {
  * Lints JavaScript files with jshint
  */
 gulp.task('jshint', function () {
-  return gulp.src(['./app.js', './public/src/js/upload.js', './public/src/js/overview.js'])
+  return gulp.src([
+    './app.js', './public/src/js/**/*.js',
+    './routes/**/*.js', './utils/**/*.js'])
           .pipe(jshint())
           .pipe(jshint.reporter('jshint-stylish'));
 });
